@@ -13,3 +13,4 @@ A simple react app that explains a list of crypto currencies
 - eslint-plugin-react-hooks not working for that checks
 - use id over the index of the array when using the arrarys
 ==> Use `CMD + D` to highlight multiple instance of the words
+- {...pet} is he lazy way and can cause issues especially when props don't match api eg location which is city and state

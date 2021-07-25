@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import useBreedList from "./useBreedList";
+import Results from "./Results";
 import Pet from "./Pet";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
@@ -9,11 +11,12 @@ const SearchParamsAnimal = () => {
   const [breed, updateBreed] = useState("");
   const [pets, setPets] = useState([]);
 
-  const breeds = [];
+  // const breeds = [];
+  const [breeds] = useBreedList(animal);    //using custom hooks (something we should have done that for Kaieek)
 
   useEffect(() => {
     requestPets();
-  }, []);             //using the square brackets you effectively use call it once
+  }, []); //using the square brackets you effectively use call it once
 
   async function requestPets() {
     const res = await fetch(
@@ -35,7 +38,12 @@ const SearchParamsAnimal = () => {
 
   return (
     <div className="search-params">
-      <form>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          requestPets();
+        }}
+      >
         <label htmlFor="location">
           Location
           <input
@@ -84,11 +92,7 @@ const SearchParamsAnimal = () => {
         </label>
         <button>Submit</button>
       </form>
-      {
-        pets.map((pet) => (
-          <Pet name={pet.name} animal={pet.animal} breed={pet.breed} key={pet.id} />
-        ))
-      }
+      <Results pets={pets} />;
     </div>
   );
 };
