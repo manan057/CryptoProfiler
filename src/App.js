@@ -1,6 +1,6 @@
 import { render } from "react-dom";
 import Coin from "./Coin";
-import SearchParams from "./SearchParams";
+import SearchParamsAnimal from "./SearchParamsAnimal";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       {/* <Coin name="Bitcoin" protocol="Proof of Work" age="12 years" />
       <Coin name="Etherum" protocol="Proof of Stake" age="6 years"/>
       <Coin name="Binance" protocol="Proof of Staked Authority" age="4 years"/> */}
-      <SearchParams />
+      <SearchParamsAnimal />
     </div>
   );
 };
