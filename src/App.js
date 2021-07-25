@@ -1,6 +1,8 @@
 import { render } from "react-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Coin from "./Coin";
 import SearchParamsAnimal from "./SearchParamsAnimal";
+import Details from "./Details";
 
 const App = () => {
   return (
@@ -9,7 +11,16 @@ const App = () => {
       {/* <Coin name="Bitcoin" protocol="Proof of Work" age="12 years" />
       <Coin name="Etherum" protocol="Proof of Stake" age="6 years"/>
       <Coin name="Binance" protocol="Proof of Staked Authority" age="4 years"/> */}
-      <SearchParamsAnimal />
+      <Router>
+        <Switch>
+          <Route path="/details/:id">
+            <Details />
+          </Route>
+          <Route path="/">
+            <SearchParamsAnimal />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 };

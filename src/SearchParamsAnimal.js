@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import useBreedList from "./useBreedList";
 import Results from "./Results";
-import Pet from "./Pet";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -12,7 +11,7 @@ const SearchParamsAnimal = () => {
   const [pets, setPets] = useState([]);
 
   // const breeds = [];
-  const [breeds] = useBreedList(animal);    //using custom hooks (something we should have done that for Kaieek)
+  const [breeds] = useBreedList(animal); //using custom hooks (something we should have done that for Kaieek)
 
   useEffect(() => {
     requestPets();
@@ -39,7 +38,7 @@ const SearchParamsAnimal = () => {
   return (
     <div className="search-params">
       <form
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           requestPets();
         }}
